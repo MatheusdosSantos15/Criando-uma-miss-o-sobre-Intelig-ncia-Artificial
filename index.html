@@ -1,0 +1,40 @@
+<!DOCTYPE html> <!-- Declaração do tipo de documento HTML5 -->
+<html lang="pt-br"> <!-- Elemento raiz HTML com idioma definido como português brasileiro -->
+<head> <!-- Cabeçalho do documento contendo metadados -->
+    <!-- Define a codificação de caracteres como UTF-8 para suporte a acentos e caracteres especiais -->
+    <meta charset="UTF-8">
+    
+    <!-- Configura a viewport para responsividade em dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Liga o arquivo CSS externo para estilização da página -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Define o título da página que aparece na aba do navegador -->
+    <title>Você decide o futuro da IA</title>
+</head>
+<body> <!-- Corpo principal da página onde fica todo o conteúdo visível -->
+    
+    <!-- Container principal que envolve todo o conteúdo da aplicação -->
+    <div class="caixa-principal">
+        
+        <!-- Título principal da página -->
+        <h1>Você decide o futuro da IA</h1>
+        
+        <!-- Container onde as perguntas serão exibidas dinamicamente pelo JavaScript -->
+        <div class="caixa-perguntas"></div>
+        
+        <!-- Container onde os botões de alternativas serão criados dinamicamente -->
+        <div class="caixa-alternativas"></div>
+        
+        <!-- Container para exibir o resultado final do questionário -->
+        <div class="caixa-resultado">
+            <!-- Parágrafo onde o texto do resultado será inserido -->
+            <p class="texto-resultado"></p>
+        </div>
+    </div>
+    
+    <!-- Liga o arquivo JavaScript que contém toda a lógica da aplicação -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1297 @@
+/* ========== RESET E CONFIGURAÇÕES BÁSICAS ========== */
+/* Reset universal: remove margens, espaçamentos e define box-sizing consistente */
+* {
+    margin: 0;           /* Remove margem padrão de todos os elementos */
+    padding: 0;          /* Remove padding padrão de todos os elementos */
+    box-sizing: border-box; /* Inclui padding e border no cálculo do tamanho */
+}
+
+/* Variáveis CSS globais para cores reutilizáveis */
+:root {
+    --cor-acento: #a8edea; /* Cor principal utilizada em gradientes e destaques */
+}
+
+/* Configurações do body principal da página */
+body {
+    /* Fonte moderna e legível para toda a aplicação */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* Gradiente de fundo azul/roxo como tema padrão */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    
+    /* Altura mínima de 100% da viewport */
+    min-height: 100vh;
+    
+    /* Layout flexbox para centralizar o conteúdo */
+    display: flex;
+    align-items: center;     /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    
+    /* Espaçamento interno para evitar que o conteúdo cole nas bordas */
+    padding: 20px;
+    
+    /* Cor do texto padrão (branco) */
+    color: #ffffff;
+    
+    /* Transição suave para mudanças de tema */
+    transition: background 1s ease;
+}
+
+/* ========== TEMAS DINÂMICOS ========== */
+/* Estes temas são aplicados pelo JavaScript baseado no perfil do usuário */
+
+/* Tema verde para perfil "Guardião da IA Responsável" (cauteloso) */
+body.tema-cauteloso {
+    background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+}
+
+/* Tema laranja/vermelho para perfil "Pioneiro da Inovação" (progressista) */
+body.tema-progressista {
+    background: linear-gradient(135deg, #FF6B35 0%, #F44336 100%);
+}
+
+/* Tema roxo para perfil "Equilibrista Tecnológico" (equilibrado) */
+body.tema-equilibrado {
+    background: linear-gradient(135deg, #9C27B0 0%, #673AB7 100%);
+}
+
+/* ========== CONTAINER PRINCIPAL ========== */
+/* Container principal com efeito "glass morphism" moderno */
+.caixa-principal {
+    /* Fundo semi-transparente branco (efeito vidro) */
+    background: rgba(255, 255, 255, 0.1);
+    
+    /* Desfoque do fundo para efeito glass morphism */
+    backdrop-filter: blur(10px);
+    
+    /* Bordas arredondadas suaves */
+    border-radius: 20px;
+    
+    /* Espaçamento interno generoso */
+    padding: 40px;
+    
+    /* Largura máxima de 800px, responsiva */
+    max-width: 800px;
+    width: 100%;
+    
+    /* Centraliza todo o texto */
+    text-align: center;
+    
+    /* Sombra elegante que dá profundidade */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    
+    /* Borda sutil translúcida */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    
+    /* Transição suave para efeitos hover */
+    transition: transform 0.3s ease;
+    
+    /* Posicionamento relativo para elementos filhos absolutos */
+    position: relative;
+}
+
+/* Efeito hover sutil que eleva o container */
+.caixa-principal:hover {
+    transform: translateY(-5px); /* Move 5px para cima */
+}
+
+/* ========== TELA DE BOAS-VINDAS ========== */
+.boas-vindas {
+    animation: fadeInUp 0.8s ease;
+}
+
+.boas-vindas-icone {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.boas-vindas h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    background: linear-gradient(45deg, #ffffff, var(--cor-acento));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.boas-vindas p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* ========== ENTRADA DE NOME ========== */
+.entrada-nome {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    margin: 30px 0;
+    backdrop-filter: blur(5px);
+}
+
+.entrada-nome label {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+#nome-input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+#nome-input:focus {
+    outline: none;
+    background: white;
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+#btn-iniciar {
+    background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+}
+
+#btn-iniciar:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.5);
+}
+
+#btn-iniciar:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ========== PREVIEW DE PERFIS ========== */
+.preview-perfis {
+    margin-top: 30px;
+}
+
+.preview-perfis h3 {
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.perfis-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.perfil-preview {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 100px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.perfil-preview:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.perfil-preview .perfil-emoji {
+    font-size: 2rem;
+}
+
+.perfil-preview .perfil-nome {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* ========== BARRA DE PROGRESSO ========== */
+.barra-progresso {
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+    display: none;
+}
+
+.progresso-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.progresso-barra {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+#progresso {
+    height: 100%;
+    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+    border-radius: 10px;
+    transition: width 0.5s ease;
+    position: relative;
+}
+
+#progresso::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.progresso-texto {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+}
+
+/* ========== TÍTULO PRINCIPAL ========== */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    background: linear-gradient(45deg, #ffffff, #a8edea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 20px rgba(168, 237, 234, 0.5);
+    }
+    to {
+        text-shadow: 0 0 30px rgba(168, 237, 234, 0.8);
+    }
+}
+
+/* ========== CAIXA DE PERGUNTAS MELHORADA ========== */
+.caixa-perguntas {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border-left: 4px solid var(--cor-acento);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.pergunta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.pergunta-numero {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-weight: 600;
+}
+
+.usuario-nome {
+    font-weight: 600;
+    color: var(--cor-acento);
+}
+
+.pergunta-texto {
+    font-size: 1.3rem;
+    line-height: 1.6;
+}
+
+.caixa-perguntas:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.02);
+}
+
+/* ========== CAIXA DE ALTERNATIVAS ========== */
+.caixa-alternativas {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+/* ========== BOTÕES DAS ALTERNATIVAS MELHORADOS ========== */
+.caixa-alternativas button,
+.botao-alternativa {
+    background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    border: none;
+    padding: 18px 25px;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    outline: none;
+}
+
+.numero-tecla {
+    background: rgba(255, 255, 255, 0.2);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.caixa-alternativas button::before,
+.botao-alternativa::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.caixa-alternativas button:hover::before,
+.botao-alternativa:hover::before {
+    left: 100%;
+}
+
+.caixa-alternativas button:hover,
+.botao-alternativa:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.5);
+    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+}
+
+/* ========== 🔥 NOVOS ESTILOS PARA CLIQUE (VERMELHO) ========== */
+/* Esta seção implementa o sistema completo de efeitos vermelhos nos botões */
+
+/* 1. Estado :active - Vermelho DURANTE o clique (enquanto botão do mouse está pressionado) */
+.caixa-alternativas button:active,
+.botao-alternativa:active {
+    /* Gradiente vermelho forte para feedback imediato */
+    background: linear-gradient(45deg, #FF4444 0%, #CC0000 100%) !important;
+    
+    /* Efeito de "afundamento" do botão */
+    transform: translateY(0) scale(0.98) !important;
+    
+    /* Sombra vermelha intensa */
+    box-shadow: 0 2px 10px rgba(255, 68, 68, 0.6) !important;
+    
+    /* Borda vermelha para destaque */
+    border: 2px solid #FF6666 !important;
+}
+
+/* Estilo do número da tecla durante o clique (:active) */
+.caixa-alternativas button:active .numero-tecla,
+.botao-alternativa:active .numero-tecla {
+    /* Fundo branco quase opaco */
+    background: rgba(255, 255, 255, 0.9) !important;
+    
+    /* Texto vermelho escuro */
+    color: #CC0000 !important;
+    
+    /* Aumenta ligeiramente o tamanho */
+    transform: scale(1.1);
+}
+
+/* 2. Estado :focus - Vermelho após o clique (permanece até perder o foco) */
+.caixa-alternativas button:focus,
+.botao-alternativa:focus {
+    /* Gradiente vermelho médio com animação contínua */
+    background: linear-gradient(45deg, #FF5555 0%, #DD1111 100%);
+    
+    /* Sombra dupla: brilho + sombra para efeito dramático */
+    box-shadow: 0 0 20px rgba(255, 68, 68, 0.8), 0 4px 15px rgba(255, 68, 68, 0.4);
+    
+    /* Borda vermelha mais clara */
+    border: 2px solid #FF8888;
+    
+    /* Eleva ligeiramente o botão */
+    transform: translateY(-2px);
+    
+    /* Animação de pulso contínua */
+    animation: pulsoVermelho 1s ease-in-out infinite alternate;
+}
+
+/* Estilo do número da tecla quando em foco (:focus) */
+.caixa-alternativas button:focus .numero-tecla,
+.botao-alternativa:focus .numero-tecla {
+    /* Fundo branco brilhante */
+    background: rgba(255, 255, 255, 0.9);
+    
+    /* Texto vermelho escuro */
+    color: #CC0000;
+    
+    /* Sombra branca para efeito de brilho */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* 3. Classe especial para botão selecionado (aplicada pelo JavaScript) */
+.botao-selecionado {
+    /* Gradiente vermelho vibrante para indicar seleção permanente */
+    background: linear-gradient(45deg, #FF3333 0%, #BB0000 100%) !important;
+    
+    /* Sombra vermelha mais intensa para destaque */
+    box-shadow: 0 6px 20px rgba(255, 51, 51, 0.7) !important;
+    
+    /* Borda vermelha mais espessa */
+    border: 3px solid #FF6666 !important;
+    
+    /* Eleva e aumenta ligeiramente o botão */
+    transform: translateY(-3px) scale(1.02) !important;
+    
+    /* Animação contínua de pulso para chamar atenção */
+    animation: selecionadoPulso 2s ease-in-out infinite !important;
+}
+
+/* Estilo do número da tecla no botão selecionado */
+.botao-selecionado .numero-tecla {
+    /* Fundo completamente branco */
+    background: rgba(255, 255, 255, 1) !important;
+    
+    /* Texto vermelho escuro */
+    color: #BB0000 !important;
+    
+    /* Sombra branca brilhante */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8) !important;
+    
+    /* Texto em negrito para destaque */
+    font-weight: bold !important;
+}
+
+/* Efeito shimmer (brilho deslizante) no botão selecionado */
+.botao-selecionado::before {
+    /* Gradiente branco para o efeito de brilho */
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent) !important;
+    
+    /* Animação contínua de shimmer */
+    animation: shimmerVermelho 1.5s infinite !important;
+}
+
+/* 4. Classe para confirmação de clique (aplicada temporariamente pelo JavaScript) */
+.botao-clicado {
+    /* Gradiente vermelho máximo para impacto visual */
+    background: linear-gradient(45deg, #FF0000 0%, #990000 100%) !important;
+    
+    /* Reduz ligeiramente o tamanho para efeito de "pressão" */
+    transform: scale(0.95) !important;
+    
+    /* Sombra vermelha intensa e ampla */
+    box-shadow: 0 8px 30px rgba(255, 0, 0, 0.8) !important;
+    
+    /* Borda vermelha bem espessa */
+    border: 4px solid #FF4444 !important;
+    
+    /* Animação de explosão única (600ms) */
+    animation: clickExplosion 0.6s ease-out !important;
+}
+
+/* Estilo especial do número da tecla durante animação de clique */
+.botao-clicado .numero-tecla {
+    /* Fundo amarelo vibrante para contraste máximo */
+    background: #FFFF00 !important;
+    
+    /* Texto vermelho escuro */
+    color: #990000 !important;
+    
+    /* Aumenta significativamente o tamanho */
+    transform: scale(1.3) !important;
+    
+    /* Animação de rotação durante o clique */
+    animation: numeroSpin 0.6s ease-out !important;
+}
+
+/* ========== 🎨 ANIMAÇÕES ESPECIAIS ========== */
+
+@keyframes pulsoVermelho {
+    from {
+        box-shadow: 0 0 15px rgba(255, 68, 68, 0.6), 0 4px 15px rgba(255, 68, 68, 0.3);
+    }
+    to {
+        box-shadow: 0 0 25px rgba(255, 68, 68, 0.9), 0 6px 20px rgba(255, 68, 68, 0.5);
+    }
+}
+
+@keyframes selecionadoPulso {
+    0% {
+        box-shadow: 0 6px 20px rgba(255, 51, 51, 0.7);
+        transform: translateY(-3px) scale(1.02);
+    }
+    50% {
+        box-shadow: 0 8px 30px rgba(255, 51, 51, 0.9);
+        transform: translateY(-5px) scale(1.03);
+    }
+    100% {
+        box-shadow: 0 6px 20px rgba(255, 51, 51, 0.7);
+        transform: translateY(-3px) scale(1.02);
+    }
+}
+
+@keyframes shimmerVermelho {
+    0% { 
+        left: -100%; 
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    }
+    50% {
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    }
+    100% { 
+        left: 100%; 
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    }
+}
+
+@keyframes clickExplosion {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 8px 30px rgba(255, 0, 0, 0.8);
+    }
+    25% {
+        transform: scale(1.1);
+        box-shadow: 0 15px 40px rgba(255, 0, 0, 1), 0 0 50px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        transform: scale(0.98);
+        box-shadow: 0 10px 35px rgba(255, 0, 0, 0.9);
+    }
+    75% {
+        transform: scale(1.02);
+        box-shadow: 0 12px 25px rgba(255, 0, 0, 0.7);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 6px 20px rgba(255, 51, 51, 0.7);
+    }
+}
+
+@keyframes numeroSpin {
+    0% {
+        transform: scale(1.3) rotate(0deg);
+        background: #FFFF00;
+    }
+    25% {
+        transform: scale(1.5) rotate(90deg);
+        background: #FF8800;
+    }
+    50% {
+        transform: scale(1.4) rotate(180deg);
+        background: #FF4444;
+    }
+    75% {
+        transform: scale(1.3) rotate(270deg);
+        background: #FF0000;
+    }
+    100% {
+        transform: scale(1.3) rotate(360deg);
+        background: #FFFF00;
+    }
+}
+
+/* 5. Efeito especial para botões não selecionados */
+.botao-nao-selecionado {
+    opacity: 0.6 !important;
+    filter: grayscale(50%) !important;
+    transform: scale(0.98) !important;
+    transition: all 0.5s ease !important;
+}
+
+.botao-nao-selecionado:hover {
+    opacity: 0.8 !important;
+    filter: grayscale(30%) !important;
+}
+
+/* ========== 🔥 INDICADOR VISUAL DE SELEÇÃO ========== */
+.indicador-selecao {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(45deg, #FF0000, #FFFF00);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    animation: indicadorPulso 1s infinite;
+    z-index: 10;
+    border: 3px solid white;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+}
+
+@keyframes indicadorPulso {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* ========== CERTIFICADO DIGITAL ========== */
+.certificado-digital {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.certificado-digital::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: rotate 8s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotate {
+    100% { transform: rotate(360deg); }
+}
+
+.certificado-header {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.certificado-selo {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.certificado-header h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.certificado-data {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.certificado-linha {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    opacity: 0.9;
+}
+
+.certificado-nome {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 20px 0;
+    background: linear-gradient(45deg, var(--cor-acento), #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ========== RESULTADO PERFIL PRINCIPAL ========== */
+.resultado-perfil-principal {
+    margin: 30px 0;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.perfil-visual {
+    margin-bottom: 20px;
+}
+
+.perfil-emoji-grande {
+    font-size: 5rem;
+    margin-bottom: 15px;
+    animation: bounce 2s infinite;
+}
+
+.perfil-titulo-grande {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.perfil-descricao-personalizada {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* ========== ESTATÍSTICAS VISUAIS ========== */
+.resultado-estatisticas-visual {
+    margin: 30px 0;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+}
+
+.resultado-estatisticas-visual h3 {
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.stat-circular {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: conic-gradient(var(--cor-acento) var(--porcentagem), rgba(255, 255, 255, 0.2) 0);
+    padding: 10px;
+}
+
+.stat-circle::before {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.stat-numero {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    z-index: 1;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    z-index: 1;
+    margin-top: 5px;
+}
+
+/* ========== RECOMENDAÇÕES PERSONALIZADAS ========== */
+.recomendacoes-personalizadas {
+    margin: 30px 0;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+}
+
+.recomendacoes-personalizadas h3 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.recomendacoes-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.recomendacao-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid var(--cor-acento);
+    transition: all 0.3s ease;
+}
+
+.recomendacao-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(10px);
+}
+
+/* ========== CERTIFICADO FOOTER ========== */
+.certificado-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.assinatura {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.assinatura-linha {
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--cor-acento), transparent);
+}
+
+.assinatura-texto {
+    font-size: 1rem;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+/* ========== EFEITO CONFETTI ========== */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: #FFD700;
+    animation: confetti-fall 4s linear infinite;
+    z-index: 999;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* ========== ANIMAÇÃO DO RESULTADO ========== */
+.resultado-animado {
+    animation: resultadoEntrada 1s ease-out;
+}
+
+@keyframes resultadoEntrada {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(50px);
+    }
+    50% {
+        transform: scale(1.05) translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* ========== CAIXA DE RESULTADO AVANÇADA ========== */
+.caixa-resultado {
+    display: none;
+    padding: 0;
+    border-radius: 20px;
+    margin-top: 20px;
+    animation: slideIn 0.5s ease-out;
+    color: #ffffff;
+    background: transparent;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.texto-resultado {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* ========== BOTÕES DE CONTROLE ========== */
+.controles-container {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn-controle {
+    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-controle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(45deg, #764ba2 0%, #667eea 100%);
+}
+
+.btn-controle:active {
+    transform: translateY(0);
+}
+
+/* ========== MODAL ========== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pulsoSuave {
+    0% { box-shadow: 0 0 5px rgba(255, 68, 68, 0.3); }
+    50% { box-shadow: 0 0 15px rgba(255, 68, 68, 0.6); }
+    100% { box-shadow: 0 0 5px rgba(255, 68, 68, 0.3); }
+}
+
+.modal-conteudo {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80%;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-fechar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.2s ease;
+}
+
+.modal-fechar:hover {
+    transform: scale(1.2);
+}
+
+.modal-conteudo h3 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+/* ========== HISTÓRICO ========== */
+.historico-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
+    border-left: 4px solid var(--cor-acento);
+}
+
+.historico-item h4 {
+    color: var(--cor-acento);
+    margin-bottom: 10px;
+}
+
+.historico-pergunta {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.historico-resposta {
+    color: #98fb98;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.historico-tipo {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* ========== NOTIFICAÇÕES ========== */
+.notificacao {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+    z-index: 1001;
+    animation: notificacaoSlide 0.3s ease;
+}
+
+@keyframes notificacaoSlide {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* ========== RESPONSIVIDADE ========== */
+@media (max-width: 768px) {
+    .caixa-principal {
+        padding: 25px;
+        margin: 10px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    
+    .caixa-perguntas {
+        font-size: 1.1rem;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .pergunta-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .caixa-alternativas button,
+    .botao-alternativa {
+        padding: 15px 20px;
+        font-size: 1rem;
+    }
+    
+    .controles-container {
+        flex-direction: column;
+    }
+    
+    .btn-controle {
+        width: 100%;
+    }
+    
+    .stats-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .stat-circle {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .stat-circle::before {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .modal-conteudo {
+        margin: 20px;
+        padding: 20px;
+    }
+    
+    .certificado-digital {
+        padding: 25px;
+    }
+    
+    .certificado-nome {
+        font-size: 2rem;
+    }
+    
+    .perfil-emoji-grande {
+        font-size: 4rem;
+    }
+    
+    .perfis-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .caixa-principal {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .caixa-perguntas {
+        font-size: 1rem;
+        padding: 15px;
+    }
+    
+    .caixa-alternativas button,
+    .botao-alternativa {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+    }
+    
+    .certificado-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .perfil-emoji-grande {
+        font-size: 3rem;
+    }
+    
+    .certificado-nome {
+        font-size: 1.8rem;
+    }
+    
+    .notificacao {
+        right: 10px;
+        left: 10px;
+        top: 10px;
+    }
+    
+    .boas-vindas h2 {
+        font-size: 1.8rem;
+    }
+    
+    .entrada-nome {
+        padding: 20px;
+    }
+}
+
+/* ========== EFEITOS ESPECIAIS ========== */
+.caixa-principal::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff0081, #ff8c00, #40e0d0, #ff0081);
+    border-radius: 22px;
+    z-index: -1;
+    animation: borderGlow 3s linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes borderGlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ========== CLASSE MOBILE PARA AJUSTES ========== */
+body.mobile .caixa-alternativas {
+    gap: 10px;
+}
+
+body.mobile .btn-controle {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+} 
